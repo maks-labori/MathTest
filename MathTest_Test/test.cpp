@@ -1,7 +1,15 @@
 #include "pch.h"
-#include "MathTest.h"
+#include "MyTest.h"
 
-TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+TEST_F(MyTest, TestConstructor) {
+
+	EXPECT_THROW([]() {Task t(-1, 5, '\0');}(), std::logic_error);
+	EXPECT_THROW([]() {Task t(0, -6, '\0');}(), std::logic_error);
+	EXPECT_THROW([]() {Task t(1, 5, 'G');}(), std::logic_error);
+	EXPECT_THROW([]() {Task t(100, 5, '+');}(), std::logic_error);
+
+	EXPECT_NO_THROW([]() {Task t(1, 5, '\0');}(), std::logic_error);
+	EXPECT_NO_THROW([]() {Task t(0, 0);}(), std::logic_error);
+	EXPECT_NO_THROW([]() {Task t(8, 45, '/');}(), std::logic_error);
+	EXPECT_NO_THROW([]() {Task t(1, 90);}(), std::logic_error);
 }
