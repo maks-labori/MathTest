@@ -3,8 +3,13 @@
 #include <gtest/gtest.h>
 #include "MathTest.h"
 
-class MyTest : public testing::Test {
+class MyTestTask : public testing::Test {
 protected:
 	Task object;
+	void SetUp() override;
+};
+class MyTestMath : public testing::Test {
+protected:
+	MathTest object;
 	void SetUp() override;
 };

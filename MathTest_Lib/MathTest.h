@@ -1,6 +1,9 @@
 #pragma once
 #include <iostream>
 #include <cmath>
+#include <string>
+#include <iomanip>
+
 struct Task {
 	int num_1;
 	int num_2;
@@ -11,6 +14,7 @@ struct Task {
 	int get_num_1();
 	int get_num_2();
 	char get_operation();
+	int get_answer();
 };
 class MathTest {
 private:
@@ -24,5 +28,11 @@ public:
 	MathTest(int _count, int _min, int _max, char _operation);
 	~MathTest();
 	void run();
+	void show_statistic();
+	int get_count();
 };
-class MyTest;
+class MyTestTask;
+class MyTestMath;
+
+int answer();
+char mark(int correct, int total);
