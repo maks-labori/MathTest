@@ -31,8 +31,6 @@ public:
 	void show_statistic();
 	int get_count();
 };
-class MyTestTask;
-class MyTestMath;
 
 int answer();
 char mark(int correct, int total);

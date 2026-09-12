@@ -1,14 +1,16 @@
 #include "MathTest.h"
 
 Task::Task() {
-	num_1 = rand() % 120;
+	num_1 = rand() % 100;
 	num_2 = (rand() % 99) + 1;
 	int num = rand() % 4;
 	switch (num) {
 	case 0:operation = '+';answer = num_1 + num_2;break;
 	case 1:operation = '-';answer = num_1 - num_2;break;
 	case 2:operation = '*';answer = num_1 * num_2;break;
-	case 3:operation = '/';answer = num_1 / num_2;}
+	case 3:operation = '/';answer = rand() % 10;num_1 = answer * num_2;
+	}
+
 }
 Task::Task(int barrier_min, int barrier_max, char _operation) {
 	if (barrier_min > barrier_max) { throw std::logic_error("min > max barrier"); }
@@ -26,7 +28,7 @@ Task::Task(int barrier_min, int barrier_max, char _operation) {
 	case '+':answer = num_1 + num_2;break;
 	case '-':answer = num_1 - num_2;break;
 	case '*':answer = num_1 * num_2;break;
-	case '/':answer = num_1 / num_2;
+	case '/':answer = rand() % 10;num_1 = answer * num_2;
 	}
 }
 int Task::get_num_1() {

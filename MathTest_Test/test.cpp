@@ -47,10 +47,10 @@ TEST(TestMath, TestThrowConstructor) {
 	EXPECT_THROW([]() {MathTest m(5,5,1);}(), std::logic_error);
 	EXPECT_THROW([]() {MathTest m(5, -1,9);}(), std::logic_error);
 	EXPECT_THROW([]() {MathTest m(5, 0, 0);}(), std::logic_error);
-
-	
-
-
-
-
+}
+TEST(TestMath, TestMarkRate) {
+	EXPECT_EQ(mark(10, 10), 'A');
+	EXPECT_EQ(mark(8, 10), 'B');
+	EXPECT_EQ(mark(5, 10), 'C');
+	EXPECT_EQ(mark(0, 10), 'D');
 }
