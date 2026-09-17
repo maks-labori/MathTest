@@ -31,17 +31,17 @@ Task::Task(int barrier_min, int barrier_max, char _operation) {
 	case '/':answer = rand() % 10;num_1 = answer * num_2;
 	}
 }
-int Task::get_num_1() {
+inline int Task::get_num_1() {
 	return num_1;
 }
-int Task::get_num_2() {
+inline int Task::get_num_2() {
 	return num_2;
 }
-char Task::get_operation() {
+inline char Task::get_operation() {
 	return operation;
 }
 
-int Task::get_answer() {
+inline int Task::get_answer() {
 	return answer;
 }
 
@@ -81,6 +81,7 @@ MathTest::~MathTest() {
 	}
 	delete[] tasks;
 	tasks = nullptr;
+	delete[] user_answer;
 }
 
 
