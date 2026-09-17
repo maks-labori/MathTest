@@ -11,10 +11,18 @@ struct Task {
 	int answer;
 	Task();
 	Task(int barrier_min, int barrier_max, char _operation = '\0');
-	int get_num_1();
-	int get_num_2();
-	char get_operation();
-	int get_answer();
+	inline int get_num_1() {
+		return num_1;
+	}
+	inline int get_num_2() {
+		return num_2;
+	}
+	inline char get_operation() {
+		return operation;
+	}
+	inline int get_answer() {
+		return answer;
+	}
 };
 class MathTest {
 private:
@@ -29,8 +37,11 @@ public:
 	~MathTest();
 	void run();
 	void show_statistic();
-	int get_count();
+	inline int get_count() {
+		return count;
+	}
 };
 
 int answer();
 char mark(int correct, int total);
+

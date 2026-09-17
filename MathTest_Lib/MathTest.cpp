@@ -28,23 +28,11 @@ Task::Task(int barrier_min, int barrier_max, char _operation) {
 	case '+':answer = num_1 + num_2;break;
 	case '-':answer = num_1 - num_2;break;
 	case '*':answer = num_1 * num_2;break;
-	case '/':answer = rand() % 10;num_1 = answer * num_2;
+	case '/':
+		if (barrier_max == barrier_min) { answer = num_1/num_2;break; }
+		answer = rand() % 10;num_1 = answer * num_2;
 	}
 }
-inline int Task::get_num_1() {
-	return num_1;
-}
-inline int Task::get_num_2() {
-	return num_2;
-}
-inline char Task::get_operation() {
-	return operation;
-}
-
-inline int Task::get_answer() {
-	return answer;
-}
-
 MathTest::MathTest(int _count) {
 	if (_count <= 0) { throw std::logic_error("count must be > 0"); }
 	this->tasks = new Task*[_count];
@@ -84,10 +72,6 @@ MathTest::~MathTest() {
 	delete[] user_answer;
 }
 
-
-int MathTest::get_count() {
-	return count;
-}
 
 void MathTest::run(){
 	std::cout << "\nStart math test";
