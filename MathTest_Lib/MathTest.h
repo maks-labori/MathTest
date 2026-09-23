@@ -11,19 +11,24 @@ struct Task {
 	int answer;
 	Task();
 	Task(int barrier_min, int barrier_max, char _operation = '\0');
-	inline int get_num_1() {
-		return num_1;
-	}
-	inline int get_num_2() {
-		return num_2;
-	}
-	inline char get_operation() {
-		return operation;
-	}
-	inline int get_answer() {
-		return answer;
-	}
+	int get_num_1()const noexcept;
+	int get_num_2()const noexcept;
+	char get_operation()const noexcept;
+	int get_answer()const noexcept;
 };
+inline int Task::get_num_1()const noexcept {
+	return num_1;
+}
+inline int Task::get_num_2()const noexcept {
+	return num_2;
+}
+inline char Task::get_operation()const noexcept {
+	return Task::operation;
+}
+inline int Task::get_answer()const noexcept {
+	return answer;
+}
+
 class MathTest {
 private:
 	Task** tasks;
@@ -35,13 +40,13 @@ public:
 	MathTest(int _count, int _min, int _max);
 	MathTest(int _count, int _min, int _max, char _operation);
 	~MathTest();
-	void run();
-	void show_statistic();
-	inline int get_count() {
-		return count;
-	}
+	void run()noexcept;
+	void show_statistic()const noexcept;
+	int get_count()const noexcept;
+	static int answer();
+	static char mark(int correct, int total)noexcept;
 };
-
-int answer();
-char mark(int correct, int total);
+inline int MathTest::get_count()const noexcept {
+	return count;
+}
 
